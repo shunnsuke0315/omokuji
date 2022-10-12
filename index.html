@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+
+<style>
+    @charset"UTF-8";
+    body{
+        height: 100vh;
+        margin:0;
+        text-align: center;
+        font-family: 'Crimson Text', serif;
+    }
+    header{
+        padding: 15px;
+    }
+    .main{
+        width: 50%;
+        height: 50%;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: #82aaaa;
+    }
+    h1{
+        font-size: 30px;
+    }
+    .display p{
+        font-size: 25px;
+    }
+    footer{
+        position:absolute;
+        bottom:15px;
+        left:50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+    }
+</style>
+
+<body>
+    <header>
+        <p>PRODUCTS 01</p>
+    </header>
+    <main>
+        <div class="main">
+            <h1>今日の運勢</h1>
+            <button id="but">おみくじを引く</button>
+            <div class="display">
+                <div><p id="display-one">結果</p></div>
+                <div id="display-twe">メッセージ</div>
+                <div id="display-thr">ラッキーアイテム</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>@2022.07.18</p>
+    </footer>
+
+    <script>
+        'use strict';
+        var content=['大吉','中吉','小吉','吉','凶'];
+        var item=['ハンカチ','水当','青いもの','ボールペン','ミサンガ']
+        var but = document.getElementById('but');
+        var display1 = document.getElementById('display-one');
+        var display2 = document.getElementById('display-twe');
+        var display3 = document.getElementById('display-thr');
+        var number1 = 0;
+        var number2 = 0;
+
+        but.addEventListener("click",function(){
+            var number1=Math.floor(Math.random()*content.length);
+            var number2=Math.floor(Math.random()*item.length);
+            display1.innerHTML=content[number1];
+            display3.innerHTML=item[number2];
+
+            switch(content[number1]){
+                case '大吉':
+                   display2.innerHTML='おめでとう！';
+                   break;
+                
+                case '中吉':
+                    display2.innerHTML='いい感じ！';
+                    break;
+                
+                case '小吉':
+                    display2.innerHTML='まあまあかな';
+                    break;
+
+                case '吉':
+                    display2.innerHTML='まあまあかな';
+                    break;
+
+                case '凶':
+                    display2.innerHTML='どんまい';
+                    break;
+
+
+
+            }
+        });
+    </script>
+</body>
+</html>
